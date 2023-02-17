@@ -1,0 +1,15 @@
+C:\0sw\Proj\Mastermind\Mastermind\bin\Debug\net6.0\Mastermind.exe
+C:\0sw\Proj\Mastermind\Mastermind\bin\Debug\net6.0\Mastermind.deps.json
+C:\0sw\Proj\Mastermind\Mastermind\bin\Debug\net6.0\Mastermind.runtimeconfig.json
+C:\0sw\Proj\Mastermind\Mastermind\bin\Debug\net6.0\Mastermind.dll
+C:\0sw\Proj\Mastermind\Mastermind\bin\Debug\net6.0\Mastermind.pdb
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\Mastermind.csproj.AssemblyReference.cache
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\Mastermind.GeneratedMSBuildEditorConfig.editorconfig
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\Mastermind.AssemblyInfoInputs.cache
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\Mastermind.AssemblyInfo.cs
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\Mastermind.csproj.CoreCompileInputs.cache
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\Mastermind.dll
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\refint\Mastermind.dll
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\Mastermind.pdb
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\Mastermind.genruntimeconfig.cache
+C:\0sw\Proj\Mastermind\Mastermind\obj\Debug\net6.0\ref\Mastermind.dll
