@@ -27,7 +27,7 @@ namespace Mastermind
             while (true)
             {
                 Console.WriteLine("Welcome to Mastermind!");
-                Console.WriteLine("\nPlease enter 4 numbers between 1 and 6 and press enter.");
+                Console.WriteLine("\nPlease enter 4 numbers between 1 and 6.");
                 Console.WriteLine("If a number is the correct value and in the correct place there will be a plus sign (+).");
                 Console.WriteLine("If you guess the correct number but it is in the wrong place there will be a minus sign (-).");
                 Console.WriteLine("If there are no signs then the number is wrong.");
