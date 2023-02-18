@@ -16,14 +16,18 @@ namespace Mastermind
 {
     internal class MainFrame
     {
-        int wins = 0, losses = 0;
-        bool success;
-        int tries;
+        int wins, losses, tries, numCount;
+        bool success;        
 
         // The starting point of the system
         // handles the start of the game and the logic for repeated attempts
         public void run()
         {
+            wins = 0;
+            losses = 0;
+            tries = 10;
+            numCount = 4;            
+
             while (true)
             {
                 Console.WriteLine("Welcome to Mastermind!");
@@ -46,26 +50,24 @@ namespace Mastermind
                     losses++;
                 }
                 Console.Write("The Secret Code was ");
-                printGuess(secretCode);
+                printFinal(secretCode);
                 Console.WriteLine("\n\nThankyou for playing! Would you like to play again? (y/n)");
                 Console.WriteLine("Wins: " + wins + " Losses: " + losses);
                 if (Console.ReadKey().KeyChar == 'n') break;
                 else Console.WriteLine("\nAlrighty! Here we go again!\n\n");
-            }
-            
+            }            
         }   
 
 
         // generate secret code
         private List<int> setup()
         {
-            tries = 10;
             success = false;
             List<int> secretCode = new List<int>();
             Random rnd = new Random(Environment.TickCount);
-            for (int i = 0;i < 4; i++) 
+            for (int i = 0;i < numCount; i++) 
             {
-                secretCode.Add(rnd.Next(1, 6));
+                secretCode.Add(rnd.Next(1, 7));
             }  
             return secretCode;
         }
@@ -78,7 +80,7 @@ namespace Mastermind
             for (int i = 0; i < tries; i++)
             {
                 if (success) return true;
-                List<int> guessCode = guess();
+                List<int> guessCode = guess(i);
                 List<char> results = checkGuess(guessCode, secretCode);
                 printResults(results); 
             }
@@ -87,15 +89,16 @@ namespace Mastermind
 
         // collects the guess information
         // verifies that the characters are numbers between 1 and 6
-        private List<int> guess()
+        private List<int> guess(int tryNum)
         {
+            tryNum++;
             bool isNumber = false;
             int value = 0;
             List<int> guessCode = new List<int>();
 
-            Console.Write(" | ");
+            Console.Write("Guess " + tryNum.ToString() + ": | ");
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < numCount; i++)
             {
                 string entry = Console.ReadKey().KeyChar.ToString();
                 (isNumber, value) = Helper.convertInt(entry);
@@ -109,7 +112,7 @@ namespace Mastermind
                 {
                     Console.WriteLine("\nIncorrect value. Please enter a number between 1 and 6.");
                     i--;
-                    printGuess(guessCode);
+                    printGuess(guessCode, tryNum);
                     continue;
                 }
             }  
@@ -117,7 +120,17 @@ namespace Mastermind
         }
 
         // handles re-printing out a guess
-        private void printGuess(List<int> myGuess)
+        private void printGuess(List<int> myGuess, int tryNum)
+        {            
+            Console.Write("Guess " + tryNum.ToString() + ":");
+            for (int i = 0; i < myGuess.Count; i++)
+            {
+                Console.Write(" | " + myGuess[i]);
+            }
+            Console.Write(" | ");
+        }
+
+        private void printFinal(List<int> myGuess)
         {
             for (int i = 0; i < myGuess.Count; i++)
             {
@@ -161,11 +174,12 @@ namespace Mastermind
             return result;
         }
 
-        // prints out the + and - characters
         // determines if the sequence is correct to win the game.
+        // prints out the + and - characters
         private void printResults(List<char> results)
         {
-            if (results.SequenceEqual(new List<char> { '+', '+', '+', '+' }))
+            
+            if (results.All(a => a == '+') && results.Count == numCount)
             {               
                 success = true;
                 return;
